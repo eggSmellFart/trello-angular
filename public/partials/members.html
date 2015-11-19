@@ -1,0 +1,21 @@
+<div class="container" >
+    <h1>Trello-Office</h1>
+    <input type="text" ng-model="searchMembers" class="input_search" placeholder="Members durchsuchen">
+    <div class="row">
+        <table class="table table-striped">
+            <h3>Overview</h3>
+            <tr>
+                <td>id</td>
+                <td>Name</td>
+                <td>Rolle</td>
+                <td>URL</td>
+            </tr>
+            <tr ng-repeat="member in members | filter:searchMembers">
+                <td><div>{{ member.id }}</div></td>
+                <td><div>{{ member.name }}</div></td>
+                <td><div>{{ member.role }}</div></td>
+                <td><div>{{ member.url }}</div></td>
+            </tr>
+        </table>
+    </div>
+</div> 

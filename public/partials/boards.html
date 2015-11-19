@@ -1,19 +1,21 @@
 <div class="container">
-    	<h1>Trello-Office</h1>
-    	<div class="row" ng-controller="AngularBoardsController as board">
-    		<table class="table table-striped" >
-                <input type="text" ng-model="$scope.search.$" class="input_search" placeholder="Boards durchsuchen">
-                <h3>Overview</h3>
-    			<tr>
-    				<td>Name</td>
-    				<td>Beschreibung</td>
-    				<td>URL</td>
-    			</tr>
-    			<tr ng-repeat="board in boards | filter:global.search.$">
-    				<td><div><% board.name %></div></td>
-    				<td><div><% board.desc %></div></td>
-    				<td><div><% board.url %></div></td>
-    			</tr>
-    		</table>
-    	</div>
-    </div>
+	<h1>Trello-Office</h1>
+	<div class="row" >
+		<table class="table table-striped" >
+            <input type="text" ng-model="searchBoards" class="input_search" placeholder="Boards durchsuchen">
+            <h3>Overview</h3>
+			<tr>
+				<td>Name</td>
+				<td>URL</td>
+				<td>Letzte Bearbeitung</td>
+                <td>Created At</td>
+			</tr>
+			<tr ng-repeat="board in boards | filter: searchBoards">
+				<td><div>{{ board.name }}</div></td>
+                <td><div>{{ board.url }}</div></td>
+                <td><div>{{ board.last_trello_sync }}</div></td>
+				<td><div>{{ board.last_change }}</div></td>
+			</tr>
+		</table>
+	</div>
+</div>

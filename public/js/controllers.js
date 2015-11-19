@@ -1,12 +1,13 @@
 var trelloControllers = angular.module('trelloControllers', []);
 
-trelloControllers.controller('AngularCardsController', function($scope, $http){
-	$http.get('/api/Cards').then(function successCallback(response) {
+trelloControllers.controller('AngularCardsController', function($scope, $http, $location){
+	$http.get('http://trello-office.mo/api/Cards').then(function successCallback(response) {
 		console.log('success');
-		$scope.cards = response.data;
-		$scope.cards =  data.splice(0, 500);
+        console.log($location.path('/cards'));
+		response.data =  response.data.splice(0, 500);
+        $scope.cards = response.data;
 	}, function errorCallback (response) {
-		console.log('error');
+		console.log(response);
 	});
 })
 
@@ -30,35 +31,15 @@ trelloControllers.controller('AngularOneMemberController',['$scope', '$http',fun
 }]);
 
 
-// trelloControllers.controller('AngularCardsController',['$scope', '$http', '$route', function ($scope, $http, $route){ 
-//     $scope.cards = [];
-//     $scope.loading = false;
-//     $scope.init = function () {
-//         $scope.loading = true;
-//         $http.get('/api/Cards').then(function successCallback(response) {
-//             console.log('success');
-//             var data = response.data;
-//             $scope.cards = response.data;
-//             $scope.cards = data.splice(0, 500);
-//         }, function errorCallback (response) {
-//             console.log('error');
-//         });
-        
-//     }
-//     $scope.init();
-// }]);
-
-
 trelloControllers.controller('AngularBoardsController',['$scope', '$http', function ($scope, $http){ 
     $scope.boards = [];
     $scope.loading = false;
     $scope.init = function () {
         $scope.loading = true;
-        $http.get('/api/Boards').then(function successCallback(response) {
+        $http.get('http://trello-office.mo/api/Boards').then(function successCallback(response) {
             console.log('success');
             $scope.boards = response.data;
-
-
+            console.log(response.data);
         }, function errorCallback (response) {
             console.log('error');
         });
@@ -72,13 +53,11 @@ trelloControllers.controller('AngularBoardsController',['$scope', '$http', funct
 trelloControllers.controller('AngularMembersController',[ '$scope', '$http', function ($scope, $http){ 
     $scope.members = [];
     $scope.loading = false;
-    // $scope.search = '';
     $scope.init = function () {
         $scope.loading = true;
-        $http.get('/api/Members').then(function successCallback(response) {
+        $http.get('http://trello-office.mo/api/Members').then(function successCallback(response) {
             console.log('success');
             $scope.members = response.data;
-
         }, function errorCallback (response) {
             console.log('error');
         });
@@ -89,6 +68,24 @@ trelloControllers.controller('AngularMembersController',[ '$scope', '$http', fun
 
 }]);
 
-trelloControllers.controller('AngluarTrelloOfficeController', ['$scope', function($scope){
-    
-}])
+
+
+
+trelloControllers.controller('AngularListsController',[ '$scope', '$http', function ($scope, $http){ 
+    $scope.lists = [];
+    $scope.loading = false;
+    $scope.init = function () {
+        $scope.loading = true;
+        $http.get('http://trello-office.mo/api/Lists').then(function successCallback(response) {
+            console.log('success');
+            $scope.lists = response.data;
+        }, function errorCallback (response) {
+            console.log('error');
+        });
+
+
+    }
+    $scope.init();
+
+}]);
+

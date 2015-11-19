@@ -1,6 +1,6 @@
 <div class="container" >
     <h1>Trello-Office</h1>
-    <input type="text" ng-model="searchCards" class="input_search" placeholder="Cards durchsuchen">
+    <input type="text" ng-model="searchLists" class="input_search" placeholder="Lists durchsuchen">
     <div class="row">
         <table class="table table-striped">
             <h3>Overview</h3>
@@ -9,10 +9,10 @@
                 <td>Beschreibung</td>
                 <td>URL</td>
             </tr>
-            <tr ng-repeat="card in cards | filter:searchCards">
-                <td><div>{{ card.name }}</div></td>
-                <td><div>{{ card.desc }}</div></td>
-                <td><div>{{ card.url }}</div></td>
+            <tr ng-repeat="list in lists | filter:searchLists">
+                <td><div>{{ list.name }}</div></td>
+                <td><div>{{ list.desc }}</div></td>
+                <td><div>{{ list.url }}</div></td>
             </tr>
         </table>
     </div>
