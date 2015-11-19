@@ -1,0 +1,66 @@
+.container, .table, tbody, tr {
+    width: 960px;
+    position: relative;
+    display: inline-block;
+    
+}
+            
+tr {
+    /*display: table-row;*/
+    width: 960px;
+    position: relative;
+    border-bottom: 1px solid #afafaf;
+    overflow:hidden;
+    border-collapse: seperate;
+    border-spacing: 4px;
+    border: 1px solid #cfcfcf;
+    height: 100px;
+
+}
+tr:first-child {
+    height: 50px;
+    text-transform: uppercase;
+    background-color: #98ceca;
+}
+tr td {
+    font-size:12px;
+    height: 100px;
+    width: calc(100% / 5 - 8px);
+    position:relative;
+    display: inline-block;
+    overflow-x: scroll;
+    border-spacing: 4px;
+    border-left: 1px solid #cfcfcf;
+    border-right: 1px solid #cfcfcf;
+
+
+}
+tr div {
+    display: inline-block;
+}
+tr:nth-child(odd) {
+    background-color: #f3f3f3;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: #efefef;
+    
+    padding: 1px;
+} /* the new scrollbar will have a flat appearance with the set background color */
+ 
+::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+      border: 1px solid #b3b3b3; 
+} /* this will style the thumb, ignoring the track */
+ 
+::-webkit-scrollbar-button {
+      background-color: #efefef;
+
+} /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+        
+::-webkit-scrollbar-corner {
+      background-color: transparent;
+} 
