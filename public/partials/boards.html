@@ -6,14 +6,13 @@
             <h3>Overview</h3>
 			<tr>
 				<td>Name</td>
-				<td>URL</td>
 				<td>Letzte Bearbeitung</td>
                 <td>Created At</td>
 			</tr>
 			<tr ng-repeat="board in boards | filter: searchBoards">
-				<td><div>{{ board.name }}</div></td>
-                <td><div>{{ board.url }}</div></td>
+				<td><a ng-href="{{board.url}}" target="_blank">{{ board.name }}</a></td>
                 <td><div>{{ board.last_trello_sync }}</div></td>
+                <td><div>{{ boards.lists }}</div></td>
 				<td><div>{{ board.last_change }}</div></td>
 			</tr>
 		</table>
