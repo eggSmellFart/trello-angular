@@ -39,7 +39,7 @@ trelloOffice.config(['$routeProvider', '$resourceProvider' , '$locationProvider'
         controller: 'AngularBoardsController'
     })
     .when('/boards/:id/lists', {
-        templateUrl: '../partials/boards.html',
+        templateUrl: '../partials/lists.html',
         controller: 'AngularOneBoardController'
     })
 
