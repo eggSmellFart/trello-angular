@@ -20,6 +20,7 @@ trelloOffice.config(['$routeProvider', '$resourceProvider' , '$locationProvider'
 //             }
 //         })
     // $locationProvider.html5Mode(true);
+    /* =========================== CARDS =========================== */
     $routeProvider
     .when('/cards', {
         templateUrl: '../partials/cards.html',
@@ -29,7 +30,9 @@ trelloOffice.config(['$routeProvider', '$resourceProvider' , '$locationProvider'
         templateUrl:'../partials/cards.html',
         controller: 'AngularOneCardController'
     })
+    
 
+    /* =========================== BOARDS =========================== */
     .when('/boards/:id', {
         templateUrl: '../partials/boards.html',
         controller: 'AngularOneBoardController'
@@ -38,11 +41,16 @@ trelloOffice.config(['$routeProvider', '$resourceProvider' , '$locationProvider'
         templateUrl: '../partials/boards.html',
         controller: 'AngularBoardsController'
     })
-    .when('/boards/:id/lists', {
-        templateUrl: '../partials/lists.html',
-        controller: 'AngularOneBoardController'
+    /* =========================== CARDS TO MEMBERS =========================== */
+    /* =========================== MEMBERS =========================== */
+    .when('/members/:id/boards', {
+        templateUrl: '../partials/members.html',
+        controller: 'AngularGetBoardsToMembersController'
     })
-
+    .when('/members/:id/cards', {
+        templateUrl: '../partials/cardsToMembers.html',
+        controller: 'AngularGetCardsToMembersController'
+    })
     .when('/members/:id', {
         templateUrl: '../partials/members.html',
         controller: 'AngularOneMemberController'
@@ -52,6 +60,8 @@ trelloOffice.config(['$routeProvider', '$resourceProvider' , '$locationProvider'
         controller: 'AngularMembersController'
     })
 
+
+    /* =========================== LISTS =========================== */
     .when('/lists', {
         templateUrl: '../partials/lists.html',
         controller: 'AngularListsController'
