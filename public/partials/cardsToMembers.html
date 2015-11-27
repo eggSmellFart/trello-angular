@@ -21,12 +21,14 @@
             <h3>Overview</h3>
             <tr>
                 <td>Name</td>
-                <td>Beschreibung</td>
+                <td>Trello Card ID</td>
+                <td>Trello List ID</td>
                 <td>URL</td>
             </tr>
-            <tr ng-repeat="card in cards | filter:searchCards">
+            <tr ng-repeat="card in cardsToMember | filter:searchCards | orderBy:card.lists_trello_id">
                 <td><div>{{ card.name }}</div></td>
-                <td><div>{{ card.desc }}</div></td>
+                <td><div>{{ card.trello_id }}</div></td>
+                <td><div>{{ card.lists_trello_id }}</div></td>
                 <td><div>{{ card.url }}</div></td>
             </tr>
         </table>
